@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package>
+    <name>Kuzman_CatalogUpdates</name>
+    <version>0.0.2</version>
+    <stability>stable</stability>
+    <license uri="http://opensource.org/licenses/OSL-3.0">Open Software License (OSL)</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Enables Website owner to monitor changes on their products. &#xD;
+This extension was hardcoded to monitor only for changes in Global scope.</summary>
+    <description>Features:&#xD;
+-------------------------&#xD;
+&#xD;
+- New configuration section on System-&gt;Configuration-&gt;Catalog-&gt;Catalog-&gt;Monitor&#xD;
+- Enable/Disable monitoring and notifications&#xD;
+- Define product attributes to include in monitoring. Changes will be logged only when values are changed for selected attributes.&#xD;
+- Define email address to receive notification containing all logged changes&#xD;
+- Define schedule for notification email sending.&#xD;
+- Append Magento database with new table "log_product_attribute_updates"&#xD;
+- Creates additional custom cron job "kdcatalogupdates_notification_send"&#xD;
+- Add observer on "catalog_product_save_commit_after" for log writting&#xD;
+- No rewrites&#xD;
+- Tested On: Enterprise Edition 1.13.1.0 &#xD;
+			 Community Edition 1.8.1.0 and 1.9.0.1 </description>
+    <notes>Stable version</notes>
+    <authors><author><name>Vladan Kuzmanovic</name><user>admin</user><email>vladankuzmanovic@gmail.com</email></author></authors>
+    <date>2015-04-02</date>
+    <time>14:40:02</time>
+    <contents><target name="magelocal"><dir name="Kuzman"><dir name="CatalogUpdates"><dir name="Block"><dir name="Email"><file name="Notifications.php" hash="dd583c09a5e11b5f59b2338ab5c31fc3"/></dir></dir><dir name="Helper"><file name="Data.php" hash="6000c1142340f37c44fc3aa421ae59d9"/></dir><dir name="Model"><file name="Log.php" hash="2a6d46dc266725c1ba4ce2eb979f2feb"/><file name="Observer.php" hash="7d04bc51f2b2b84dc32dd789dfbe8db9"/><dir name="Resource"><dir name="Log"><file name="Collection.php" hash="2f24ced4f3377bfdc132b657890705a6"/></dir><file name="Log.php" hash="349b5e15edc12c6c64cd347a0d15e540"/></dir><dir name="System"><dir name="Config"><dir name="Source"><file name="Cron.php" hash="57f5da7e49715cd49164d88a4904c7df"/><file name="Productattr.php" hash="d9bb6f01fc0fa2b08ee30551260ae507"/></dir></dir></dir></dir><file name="README.md" hash="8bc80aefc3a7a4f803cbc547dbd96897"/><dir name="etc"><file name="config.xml" hash="4d94b470461658a8c2e5a6a81765e802"/><file name="system.xml" hash="465d22e32b910711bd84842a4725440a"/></dir><dir name="sql"><dir name="kdcatalogupdates_setup"><file name="install-0.0.1.php" hash="ad48e782bfb6a3cb94a78257297568ae"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><dir name="kdcatalogupdates"><file name="update.xml" hash="5600e4bad60ae91ed13e1c7739c3176f"/></dir></dir><dir name="template"><dir name="kdcatalogupdates"><dir name="email"><file name="notifications.phtml" hash="47731d4f5a54866a803a678d4036cc5c"/></dir></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Kuzman_CatalogUpdates.xml" hash="68a57b4d049975232296bb860fcf17e5"/></dir></target><target name="magelocale"><dir name="en_US"><dir name="template"><dir name="email"><dir name="kdcatalogupdates"><file name="productattribute_update_notification.html" hash="fb40c7e51d599c130007e12f57bc94d3"/></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.5.7</min><max>5.5.7</max></php></required></dependencies>
+</package>

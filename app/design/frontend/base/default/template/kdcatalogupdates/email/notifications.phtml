@@ -1,0 +1,12 @@
+<?php
+/**
+ * @author	    Vladan Kuzmanovic (vladankuzmanovic@gmail.com)
+*/
+?>
+<?php $notificationsCollection=$this->getNotificationsCollection();?>
+<?php foreach($notificationsCollection as $notification):?>
+    <p><b>Attribute Front Label:</b> <?php echo $this->getAttributeFrontLabel($notification->getAttrId());?>,
+        <b>Product Id:</b> <?php echo $notification->getPid();?>,
+        <b>Old Attribute Value:</b> <?php echo $notification->getOldVal();?>,
+        <b>New Attribute Value:</b> <?php echo $notification->getNewVal();?></p><br/>
+<?php endforeach;?>

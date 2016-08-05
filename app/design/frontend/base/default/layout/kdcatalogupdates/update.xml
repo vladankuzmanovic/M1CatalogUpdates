@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @author	    Vladan Kuzmanovic (vladankuzmanovic@gmail.com)
+*/
+-->
+<layout version="0.1.0">
+    <product_attribute_changes_notifications>
+        <block type="kdcatalogupdates/email_notifications" name="email_notifications" template="kdcatalogupdates/email/notifications.phtml" />
+    </product_attribute_changes_notifications>
+</layout>

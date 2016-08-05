@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @author	    Vladan Kuzmanovic (vladankuzmanovic@gmail.com)
+*/
+-->
+<config>
+    <modules>
+        <Kuzman_CatalogUpdates>
+            <version>0.0.2</version>
+        </Kuzman_CatalogUpdates>
+    </modules>
+    <global>
+        <helpers>
+            <kdcatalogupdates>
+                <class>Kuzman_CatalogUpdates_Helper</class>
+            </kdcatalogupdates>
+        </helpers>
+        <blocks>
+            <kdcatalogupdates>
+                <class>Kuzman_CatalogUpdates_Block</class>
+            </kdcatalogupdates>
+        </blocks>
+        <models>
+            <kdcatalogupdates>
+                <class>Kuzman_CatalogUpdates_Model</class>
+                <resourceModel>kdcatalogupdates_resource</resourceModel>
+            </kdcatalogupdates>
+            <kdcatalogupdates_resource>
+                <class>Kuzman_CatalogUpdates_Model_Resource</class>
+                <entities>
+                    <log>
+                        <table>log_product_attribute_updates</table>
+                    </log>
+                </entities>
+            </kdcatalogupdates_resource>
+        </models>
+        <resources>
+            <kdcatalogupdates_setup>
+                <setup>
+                    <module>Kuzman_CatalogUpdates</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </kdcatalogupdates_setup>
+        </resources>
+        <events>
+        	<catalog_product_save_commit_after>
+                <observers>
+                    <kdcatalogupdates>
+                        <type>singleton</type>
+                        <class>kdcatalogupdates/observer</class>
+                        <method>logAttributeChanges</method>
+                    </kdcatalogupdates>
+                </observers>
+            </catalog_product_save_commit_after>
+        </events>
+        <template>
+            <email>
+                <productattribute_update_notification translate="label" module="kdcatalogupdates">
+                    <label>Product Attribute Update Notification</label>
+                    <file>kdcatalogupdates/productattribute_update_notification.html</file>
+                    <type>html</type>
+                </productattribute_update_notification>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <kdcatalogupdates>
+                    <file>kdcatalogupdates/update.xml</file>
+                </kdcatalogupdates>
+            </updates>
+        </layout>
+    </frontend>
+    <crontab>
+        <jobs>
+            <kdcatalogupdates_notification_send>
+                <run><model>kdcatalogupdates/observer::sendNotificationEmail</model></run>
+            </kdcatalogupdates_notification_send>
+        </jobs>
+    </crontab>
+    <default>
+        <catalog>
+            <notifications>
+                <enabled>0</enabled>
+                <prod_attr/>
+                <email>example@email.com</email>
+                <time/>
+                <frequency>D</frequency>
+            </notifications>
+        </catalog>
+    </default>
+</config>

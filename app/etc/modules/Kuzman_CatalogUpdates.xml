@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * @author	    Vladan Kuzmanovic (vladankuzmanovic@gmail.com)
+*/
+-->
+<config>
+    <modules>
+        <Kuzman_CatalogUpdates>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Kuzman_CatalogUpdates>
+    </modules>
+</config>
